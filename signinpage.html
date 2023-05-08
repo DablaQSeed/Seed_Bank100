@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <div class="text-lg-end mt-3">
+         <h3 class="fw-bolder">$EED<span class=" text-danger">BANK</span></h3>
+        </div>
+      </nav>
+      <div class="col-4 mx-auto px-4 shadow" style="margin-top: 100px">
+        <h3 class="mb-5">Sign In</h3>
+        <div class="text-center px-2 mt-2">
+          <input
+            class="form-control mb-2"
+            type="text"
+            placeholder="Email or Phone Number"
+            id="mail"
+          />
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Password"
+            id="pass"
+          />
+          <button
+            class="mt-3 bg-danger px-4 py-2 rounded-pill border-0 text-white mb-3"
+            onclick="signIn()"
+          >
+            Sign in
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let allCustomers = JSON.parse(localStorage.getItem("bankAccount"));
+      console.log(allCustomers);
+
+      const signIn = () => {
+        let userFound = false;
+       
+
+        for (let index = 0; index < allCustomers.length; index++) {
+          if (
+            mail.value == allCustomers[index].email &&
+            pass.value == allCustomers[index].password
+          ) {
+            localStorage.setItem("userIndex", index);
+           
+           
+            userFound = true;
+          }
+          if (userFound == true) {
+          alert(`I see you ${allCustomers[index].firstName}`)
+          window.location.href = "dashboard.html";
+        }
+        //  else {
+        //   alert("who you be your papa commot for here jhor");
+        // }
+        }
+       
+      };
+    </script>
+  </body>
+</html>
